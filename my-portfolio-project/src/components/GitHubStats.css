@@ -174,8 +174,9 @@
 
 /* BUTTON */
 .stats-card-button {
-    display: inline-block;
-    padding: 8px 12px;
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
     background: var(--accent);
     color: white;
     text-align: center;
@@ -186,7 +187,8 @@
     transition: 0.3s ease;
     border: none;
     cursor: pointer;
-    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
 }
 
 .stats-card-button:hover {

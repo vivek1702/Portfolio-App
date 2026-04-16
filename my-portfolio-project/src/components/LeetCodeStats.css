@@ -174,8 +174,9 @@
 
 /* BUTTON */
 .stats-card-button {
-    display: inline-block;
-    padding: 8px 12px;
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
     background: var(--accent);
     color: white;
     text-align: center;
@@ -186,116 +187,116 @@
     transition: 0.3s ease;
     border: none;
     cursor: pointer;
-    width: 100%;
-}
+    box-sizing: border-box;
+    margin-top: auto;
 
-.stats-card-button:hover {
-    background: var(--accent-light);
-    transform: scale(1.02);
-}
-
-/* RESPONSIVE - TABLET */
-@media (max-width: 768px) {
-    .stats-card {
-        padding: 18px;
+    .stats-card-button:hover {
+        background: var(--accent-light);
+        transform: scale(1.02);
     }
 
-    .stats-card-header {
-        gap: 10px;
-        margin-bottom: 14px;
-        padding-bottom: 10px;
+    /* RESPONSIVE - TABLET */
+    @media (max-width: 768px) {
+        .stats-card {
+            padding: 18px;
+        }
+
+        .stats-card-header {
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+        }
+
+        .stats-card-icon {
+            font-size: 28px;
+        }
+
+        .stats-card-title h3 {
+            font-size: 1rem;
+        }
+
+        .stats-card-title p {
+            font-size: 0.8rem;
+        }
+
+        .stats-card-content {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .stat-item {
+            padding: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+        }
+
+        .stat-name {
+            font-size: 0.7rem;
+        }
+
+        .stats-card-bio {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-card-button {
+            padding: 7px 10px;
+            font-size: 0.8rem;
+        }
     }
 
-    .stats-card-icon {
-        font-size: 28px;
-    }
+    /* RESPONSIVE - MOBILE */
+    @media (max-width: 480px) {
+        .stats-card {
+            padding: 15px;
+        }
 
-    .stats-card-title h3 {
-        font-size: 1rem;
-    }
+        .stats-card-header {
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+        }
 
-    .stats-card-title p {
-        font-size: 0.8rem;
-    }
+        .stats-card-icon {
+            font-size: 24px;
+        }
 
-    .stats-card-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        margin-bottom: 10px;
-    }
+        .stats-card-title h3 {
+            font-size: 0.95rem;
+        }
 
-    .stat-item {
-        padding: 8px;
-    }
+        .stats-card-title p {
+            font-size: 0.75rem;
+        }
 
-    .stat-number {
-        font-size: 1.2rem;
-    }
+        .stats-card-content {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin-bottom: 8px;
+        }
 
-    .stat-name {
-        font-size: 0.7rem;
-    }
+        .stat-item {
+            padding: 6px;
+        }
 
-    .stats-card-bio {
-        font-size: 0.8rem;
-        margin-bottom: 10px;
-    }
+        .stat-number {
+            font-size: 1rem;
+        }
 
-    .stats-card-button {
-        padding: 7px 10px;
-        font-size: 0.8rem;
-    }
-}
+        .stat-name {
+            font-size: 0.65rem;
+        }
 
-/* RESPONSIVE - MOBILE */
-@media (max-width: 480px) {
-    .stats-card {
-        padding: 15px;
-    }
+        .stats-card-bio {
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
 
-    .stats-card-header {
-        gap: 8px;
-        margin-bottom: 12px;
-        padding-bottom: 10px;
+        .stats-card-button {
+            padding: 6px 10px;
+            font-size: 0.75rem;
+        }
     }
-
-    .stats-card-icon {
-        font-size: 24px;
-    }
-
-    .stats-card-title h3 {
-        font-size: 0.95rem;
-    }
-
-    .stats-card-title p {
-        font-size: 0.75rem;
-    }
-
-    .stats-card-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-        margin-bottom: 8px;
-    }
-
-    .stat-item {
-        padding: 6px;
-    }
-
-    .stat-number {
-        font-size: 1rem;
-    }
-
-    .stat-name {
-        font-size: 0.65rem;
-    }
-
-    .stats-card-bio {
-        font-size: 0.75rem;
-        margin-bottom: 8px;
-    }
-
-    .stats-card-button {
-        padding: 6px 10px;
-        font-size: 0.75rem;
-    }
-}
