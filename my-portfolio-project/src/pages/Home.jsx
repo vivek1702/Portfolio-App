@@ -16,10 +16,10 @@ import { FaDatabase, FaGithubSquare } from "react-icons/fa";
 import "./Home.css";
 import { useState } from "react";
 import Projects from "./Projects";
+import LeetCodeStats from "../components/LeetCodeStats";
+import GitHubStats from "../components/GitHubStats";
 
-export default function Home() {
-  const [toast, setToast] = useState("");
-
+export default function Home({ toast, setToast }) {
   const skills = [
     { name: "JavaScript", icon: <SiJavascript /> },
     { name: "React.js", icon: <SiReact /> },
@@ -37,73 +37,55 @@ export default function Home() {
   const handleCopy = (text, message) => {
     navigator.clipboard.writeText(text);
     setToast(message);
-
-    setTimeout(() => {
-      setToast("");
-    }, 2000);
   };
 
   return (
     <div className="home">
       <section className="hero">
         {toast && <div className="toast">{toast}</div>}
+
+        {/* Left Side - Profile Picture + Name Card (20%) */}
         <div className="hero-left">
-          <h3>
-            Hi, I'm <span>Vivek Singh</span>
-          </h3>
-          <p>
-            Full-Stack Developer passionate about building robust web
-            applications with modern technologies. Expertise in React.js,
-            Node.js, and Express.js for dynamic frontends and scalable backends.
-            Proficient in MongoDB and PostgreSQL for database design. I leverage
-            JavaScript, Python, Bootstrap, and deployment platforms like Vercel
-            to create production-ready solutions that drive real impact.
-          </p>
-          {/* contacts */}
-          <div className="hero-contact">
-            <span className="contact-label">Connect</span>
+          <div className="profile-card">
+            <img src="/images/git-hub pp.jpg" alt="profile-picture" />
+            <div className="profile-ring"></div>
+          </div>
 
-            <div className="icons">
-              <MdEmail
-                onClick={() =>
-                  handleCopy("svivek1702@gmail.com", "Email copied!")
-                }
-              />
-
-              <FaLinkedin
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/in/vivek-singh-3a8044160/",
-                  )
-                }
-              />
-
-              <FaTwitter
-                onClick={() => window.open("https://x.com/svivek1702")}
-              />
-
-              <FaPhone
-                onClick={() => handleCopy("+917879059944", "Phone copied!")}
-              />
-            </div>
+          <div className="name-card">
+            <p>Vivek Singh</p>
           </div>
         </div>
+
+        {/* Right Side - Description + Skills (80%) */}
         <div className="hero-right">
-          <img src="/images/git-hub pp.jpg" alt="profile-picture" />
+          <p className="hero-description">
+            Full-stack developer passionate about building robust, scalable web
+            applications. I focus on creating seamless user experiences with
+            clean code and modern development practices.
+          </p>
+
+          {/* Skills Section */}
+          <div className="hero-skills">
+            <h4>Technical Skills</h4>
+            <div className="hero-skills-grid">
+              {skills.map((skill) => (
+                <div key={skill.name} className="hero-skill-card">
+                  <div className="hero-skill-icon">{skill.icon}</div>
+                  <p className="hero-skill-name">{skill.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       <Projects />
 
-      <section className="skills">
-        <h2 className="section-title">Skills</h2>
-        <div className="skills-grid">
-          {skills.map((skill) => (
-            <div key={skill.name} className="skill-card">
-              <div className="skill-icon">{skill.icon}</div>
-              <p className="skill-name">{skill.name}</p>
-            </div>
-          ))}
+      <section className="stats-section">
+        <h2 className="section-title">Coding Profile</h2>
+        <div className="stats-container">
+          <LeetCodeStats />
+          <GitHubStats />
         </div>
       </section>
 

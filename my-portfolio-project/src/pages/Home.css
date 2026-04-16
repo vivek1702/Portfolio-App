@@ -1,13 +1,14 @@
 .hero {
     display: flex;
     align-items: flex-start;
-    /* ✅ FIX: was center */
     justify-content: space-between;
     min-height: auto;
-    padding: 20px 10% 0;
-    /* ✅ reduced top padding */
-    gap: 30px;
+    padding: 40px 0 20px;
+    /* increased top padding from navbar */
+    gap: 50px;
+    /* increased gap between left and right */
     position: relative;
+    flex-wrap: nowrap;
 }
 
 .toast {
@@ -17,11 +18,9 @@
     transform: translateX(-50%);
 
     background: rgba(71, 85, 105, 0.95);
-    /* matches your theme */
     color: var(--text-primary);
 
     padding: 12px 20px;
-    /* bigger */
     border-radius: 8px;
 
     font-size: 0.95rem;
@@ -59,132 +58,162 @@
     }
 }
 
-/* building hero left 70% */
+/* LEFT SIDE - Profile Picture + Name (20%) */
 .hero-left {
-    flex: 7;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    /* increased gap between profile and name card */
     min-width: 0;
-    /* ✅ VERY IMPORTANT (flex fix) */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* slightly reduced from 20 */
-
-    padding: 30px;
-    border-radius: var(--radius);
-
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(6px);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
+    max-width: 300px;
+    padding-right: 25px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.hero-left h3 {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.hero-left span {
-    color: var(--accent);
-}
-
-.hero-left p {
-    max-width: 600px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-.hero-contact {
-    display: flex;
-    flex-direction: column;
-    /* ✅ stack label + icons */
-    gap: 6px;
-    margin-top: 10px;
-}
-
-.contact-label {
-    font-size: 0.95rem;
-    /* slightly bigger */
-    color: var(--accent);
-    /* highlight instead of dull */
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    font-size: 22px;
-}
-
-.icons svg {
-    cursor: pointer;
-    transition: 0.3s ease;
-    color: var(--text-primary);
-}
-
-.icons svg:hover {
-    color: var(--accent-light);
-    transform: scale(1.2);
-}
-
-
-/* building hero right 30% */
-.hero-right {
-    flex: 3;
+.profile-card {
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: relative;
-
-    width: 300px;
-    height: 300px;
+    max-width: 280px;
+    width: 100%;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    box-sizing: border-box;
 
     border-radius: var(--radius);
-    /* ✅ match left */
     background: rgba(255, 255, 255, 0.03);
-    /* ✅ same glass */
     backdrop-filter: blur(6px);
-    /* ✅ same effect */
-
     border: 1px solid rgba(255, 255, 255, 0.08);
-    /* ✅ same border */
 }
 
-.hero-right img {
-
-    width: 235px;
-    height: 235px;
+.profile-card img {
+    width: 85%;
+    height: 85%;
     border-radius: 50%;
     object-fit: cover;
-
     position: relative;
     z-index: 2;
 }
 
-/* outer ring */
-.hero-right::before {
-    content: "";
+.profile-ring {
     position: absolute;
-    width: 240px;
-    height: 240px;
+    width: 82%;
+    height: 82%;
     border-radius: 50%;
     border: 2px solid var(--accent-light);
     opacity: 0.4;
 }
 
+.name-card {
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
+    /* includes padding in width calculation */
+}
+
+.name-card p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.name-card p span {
+    color: var(--accent);
+}
+
+/* RIGHT SIDE - Description + Skills (80%) */
+.hero-right {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    /* increased gap between description and skills */
+    min-width: 0;
+    padding-left: 25px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Hero Skills Section */
+.hero-skills {
+    margin-top: 10px;
+}
+
+.hero-skills h4 {
+    font-size: 1.1rem;
+    margin: 0 0 15px 0;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.hero-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: 12px;
+}
+
+.hero-skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+}
+
+.hero-skill-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(99, 102, 241, 0.5);
+    transform: translateY(-3px);
+}
+
+.hero-skill-icon {
+    font-size: 1.3rem;
+    color: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-skill-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0;
+}
+
 .skills,
 .projects {
-    padding: 10px 10%;
+    padding: 10px 0;
 }
 
 /* SKILLS SECTION */
 .skills {
     width: 100%;
-    padding: 40px 10%;
+    padding: 40px 0;
 }
 
 .section-title {
@@ -240,8 +269,87 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+
+    /* Hero Section Mobile */
+    .hero {
+        flex-direction: column;
+        padding: 30px 0 10px;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .hero-left {
+        flex: 1;
+        width: 100%;
+        gap: 20px;
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .profile-card {
+        width: 100%;
+        max-width: 220px;
+        box-sizing: border-box;
+    }
+
+    .profile-card img {
+        width: 85%;
+        height: 85%;
+    }
+
+    .profile-ring {
+        width: 82%;
+        height: 82%;
+    }
+
+    .name-card {
+        width: 100%;
+        max-width: 220px;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .name-card p {
+        font-size: 1.2rem;
+    }
+
+    .hero-right {
+        flex: 1;
+        width: 100%;
+        gap: 25px;
+        padding-left: 0;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .hero-skills h4 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+        gap: 10px;
+    }
+
+    .hero-skill-card {
+        padding: 12px 8px;
+    }
+
+    .hero-skill-icon {
+        font-size: 1.1rem;
+    }
+
+    .hero-skill-name {
+        font-size: 0.75rem;
+    }
+
+    /* Skills Section Mobile */
     .skills {
-        padding: 30px 5%;
+        padding: 30px 0;
     }
 
     .section-title {
@@ -267,15 +375,164 @@
     }
 }
 
+/* Extra Small Screens (mobile phones) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 20px 0 8px;
+        /* increased from 10px for more top space */
+        gap: 20px;
+        /* increased from 15px */
+    }
+
+    .hero-left {
+        gap: 15px;
+        /* increased from 12px */
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .hero-right {
+        gap: 20px;
+        padding-left: 0;
+    }
+
+    .profile-card {
+        width: 100%;
+        max-width: 180px;
+        box-sizing: border-box;
+    }
+
+    .profile-card img {
+        width: 85%;
+        height: 85%;
+    }
+
+    .profile-ring {
+        width: 82%;
+        height: 82%;
+    }
+
+    .name-card {
+        width: 100%;
+        max-width: 180px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .name-card p {
+        font-size: 1.1rem;
+    }
+
+    .hero-right {
+        gap: 15px;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .hero-skills h4 {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+        gap: 8px;
+    }
+
+    .hero-skill-card {
+        padding: 10px 6px;
+    }
+
+    .hero-skill-icon {
+        font-size: 1rem;
+    }
+
+    .hero-skill-name {
+        font-size: 0.7rem;
+    }
+
+    .skills {
+        padding: 25px 0;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+        gap: 10px;
+    }
+}
+
+/* STATS SECTION */
+.stats-section {
+    width: 100%;
+    padding: 0;
+    margin-top: 60px;
+}
+
+.stats-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+/* RESPONSIVE - STATS CONTAINER */
+@media (max-width: 768px) {
+    .stats-section {
+        margin-top: 40px;
+    }
+
+    .stats-section .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-section {
+        margin-top: 30px;
+    }
+
+    .stats-section .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
 /* FOOTER SECTION */
 .footer {
     width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
+    margin: 80px auto 0;
+    /* increased from 40px for more space between projects and footer */
     background: rgba(255, 255, 255, 0.02);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 25px 20px;
+    padding: 25px 40px;
     text-align: center;
-    margin-top: 40px;
 }
 
 .footer p {
@@ -294,11 +551,26 @@
 /* RESPONSIVE FOOTER */
 @media (max-width: 768px) {
     .footer {
-        padding: 20px 5%;
-        margin-top: 30px;
+        max-width: 100%;
+        padding: 20px 30px;
+        margin-top: 60px;
+        /* increased from 30px for better spacing */
     }
 
     .footer p {
         font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        max-width: 100%;
+        padding: 15px 20px;
+        margin-top: 40px;
+        /* increased from default for mobile spacing */
+    }
+
+    .footer p {
+        font-size: 0.8rem;
     }
 }

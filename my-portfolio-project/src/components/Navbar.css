@@ -4,11 +4,86 @@
     /* 🔥 main requirement */
     align-items: center;
     padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.navbar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(71, 85, 105, 0.95);
+    color: var(--text-primary);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+
+    animation: slideDown 0.3s ease, fadeOut 2s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes fadeOut {
+
+    0%,
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.connect-label {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.navbar-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 22px;
+}
+
+.navbar-contacts svg {
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: var(--text-primary);
+}
+
+.navbar-contacts svg:hover {
+    color: var(--accent-light);
+    transform: scale(1.2);
 }
 
 .navbar .button {
-    margin-left: auto;
-    /* ✅ pushes it to right */
     padding: 10px 16px;
     border-radius: 8px;
     background: var(--accent);
@@ -42,4 +117,64 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .navbar-wrapper {
+        gap: 12px;
+    }
+
+    .connect-label {
+        font-size: 0.9rem;
+    }
+
+    .navbar-contacts {
+        gap: 15px;
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 12px 10px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .navbar-wrapper {
+        gap: 10px;
+        order: 1;
+        width: 100%;
+    }
+
+    .connect-label {
+        font-size: 0.85rem;
+    }
+
+    .navbar-contacts {
+        gap: 12px;
+        font-size: 16px;
+    }
+
+    .button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        order: 2;
+    }
+
+    .button svg {
+        width: 16px;
+        height: 16px;
+    }
 }

@@ -1,9 +1,10 @@
 /* APP CONTAINER */
 .app {
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* MAIN CONTENT */
@@ -15,21 +16,28 @@ main {
 /* SECTION CONTAINER */
 section {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* RESPONSIVE SECTIONS */
 @media (max-width: 1024px) {
     section {
         max-width: 100%;
-        padding: 30px 20px;
+        padding: 30px 40px;
     }
 }
 
 @media (max-width: 768px) {
     section {
-        padding: 20px 15px;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 15px 20px;
     }
 }
