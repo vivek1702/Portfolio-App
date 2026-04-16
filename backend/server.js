@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 app.use(
   cors({
-    origin: "https://portfolio-app-sigma-steel.vercel.app/",
+    origin: "https://portfolio-app-sigma-steel.vercel.app",
   }),
 );
 app.use(express.json());
