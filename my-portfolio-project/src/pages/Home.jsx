@@ -1,6 +1,3 @@
-import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { FaPhone } from "react-icons/fa";
 import {
   SiJavascript,
   SiReact,
@@ -11,6 +8,8 @@ import {
   SiPostgresql,
   SiBootstrap,
   SiVercel,
+  SiHtml5,
+  SiCss,
 } from "react-icons/si";
 import { FaDatabase, FaGithubSquare } from "react-icons/fa";
 import "./Home.css";
@@ -32,6 +31,8 @@ export default function Home({ toast, setToast }) {
     { name: "Vercel", icon: <SiVercel /> },
     { name: "GitHub", icon: <FaGithubSquare /> },
     { name: "Bootstrap", icon: <SiBootstrap /> },
+    { name: "HTML", icon: <SiHtml5 /> },
+    { name: "CSS", icon: <SiCss /> },
   ];
 
   const handleCopy = (text, message) => {
@@ -59,9 +60,9 @@ export default function Home({ toast, setToast }) {
         {/* Right Side - Description + Skills (80%) */}
         <div className="hero-right">
           <p className="hero-description">
-            Full-stack developer passionate about building robust, scalable web
-            applications. I focus on creating seamless user experiences with
-            clean code and modern development practices.
+            Hi, I'm Full-stack developer passionate about building robust,
+            scalable web applications. I focus on creating seamless user
+            experiences with clean code and modern development practices.
           </p>
 
           {/* Skills Section */}
