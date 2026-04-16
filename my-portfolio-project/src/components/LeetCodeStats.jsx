@@ -12,13 +12,16 @@ export default function LeetCodeStats() {
   useEffect(() => {
     const fetchLeetCodeStats = async () => {
       try {
-        const leetcodeResponse = await fetch("http://localhost:5000/leetcode", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        const leetcodeResponse = await fetch(
+          "https://portfolio-app-36ax.onrender.com/leetcode",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: LEETCODE_USERNAME }),
           },
-          body: JSON.stringify({ username: LEETCODE_USERNAME }),
-        });
+        );
 
         if (!leetcodeResponse.ok) {
           throw new Error("Failed to fetch LeetCode stats");
